@@ -23,11 +23,11 @@ flashing a device, downloading the project and pushing it via the [balena CLI](h
 
 ### Environment Variables
 
-| Name           | Description                                                                                                       |
-| -------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `FRIGATE_*`    | Any environment variables that begin with `FRIGATE_` may be referenced with `{}` in `frigate.yml`.                |
-| `TZ`           | Inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location. |
-| `SET_HOSTNAME` | Set a custom hostname on application start so it can be reached via MDNS like `frigate.local`.                    |
+| Name                    | Description                                                                                                       |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `FRIGATE_RTSP_PASSWORD` | Default password for RTSP camera streams.                                                                         |
+| `TZ`                    | Inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location. |
+| `SET_HOSTNAME`          | Set a custom hostname on application start so it can be reached via MDNS like `frigate.local`.                    |
 
 ## Usage/Examples
 
