@@ -1,7 +1,7 @@
 # https://blakeblackshear.github.io/frigate/configuration/index
 
 mqtt:
-  host: mqtt.server.com
+  host: mqtt
 cameras:
   back:
     ffmpeg:
