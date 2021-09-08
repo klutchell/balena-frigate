@@ -8,7 +8,6 @@ It uses OpenCV and Tensorflow to perform realtime object detection locally for I
 <https://blakeblackshear.github.io/frigate/hardware>
 
 - Intel NUC
-- Google Coral <https://coral.ai>
 
 ## Getting Started
 
@@ -27,7 +26,7 @@ flashing a device, downloading the project and pushing it via the [balena CLI](h
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `FRIGATE_RTSP_PASSWORD` | Default password for RTSP camera streams.                                                                         |
 | `TZ`                    | Inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location. |
-| `SET_HOSTNAME`          | Set a custom hostname on application start so it can be reached via MDNS like `frigate.local`.                    |
+| `SET_HOSTNAME`          | Set a custom hostname on application start. Default is `frigate`.                                                 |
 
 ## Usage/Examples
 
