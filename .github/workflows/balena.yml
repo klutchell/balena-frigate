@@ -1,0 +1,68 @@
+name: balena
+
+on:
+  push:
+    branches:
+      - "main"
+    tags:
+      - "v*"
+  pull_request:
+    branches:
+      - "main"
+
+env:
+  BALENARC_BALENA_URL: balena-cloud.com
+  BALENARC_PROXY_URL: balena-devices.com
+  BALENA_CLI_VERSION: 12.48.7
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 12
+
+    - name: Install balena CLI
+      run: npm install balena-cli@${{ env.BALENA_CLI_VERSION }} --production --global
+
+    - name: Login to balenaCloud
+      run: balena login --token "${{ secrets.BALENA_API_KEY }}"
+
+    - name: Enable draft option
+      if: github.event_name == 'pull_request'
+      run: echo "DRAFT=--draft" >> $GITHUB_ENV
+
+    - name: Push to balenaCloud
+      run: |
+        balena push ${{ secrets.BALENA_FLEET_SLUG }} \
+          --release-tag GITHUB_WORKFLOW "${GITHUB_WORKFLOW}" \
+          --release-tag GITHUB_RUN_ID "${GITHUB_RUN_ID}" \
+          --release-tag GITHUB_RUN_NUMBER "${GITHUB_RUN_NUMBER}" \
+          --release-tag GITHUB_ACTOR "${GITHUB_ACTOR}" \
+          --release-tag GITHUB_SHA "${GITHUB_SHA}" \
+          --release-tag GITHUB_REF "${GITHUB_REF}" \
+          ${DRAFT} | tee build.log
+
+    - name: Parse release ID from build log
+      run: |
+        set -o pipefail
+        cat build.log | \
+          sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" | \
+          sed -rn 's/.*Release: ([[:alnum:]]+) \(id: ([0-9]+)\)/RELEASE_ID=\2/p' >> $GITHUB_ENV
+
+    - name: Get release version from balena API
+      run: |
+        set -o pipefail
+        curl -fsSL -X GET \
+          "https://api.${{ env.BALENARC_BALENA_URL }}/v6/release(${{ env.RELEASE_ID }})?\$select=version" \
+          -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.BALENA_API_KEY }}" | \
+           jq -r '.d[].version.raw' | sed 's/^/RELEASE_VERSION=/' >> $GITHUB_ENV
+
+    - uses: tvdias/github-tagger@v0.0.2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        tag: "v${{ env.RELEASE_VERSION }}"
