@@ -8,6 +8,9 @@ It uses OpenCV and Tensorflow to perform realtime object detection locally for I
 <https://blakeblackshear.github.io/frigate/hardware>
 
 - Intel NUC
+- Generic x86-64 w/ Google Coral USB Accelerator
+- NVIDIA Jetson Nano w/ Google Coral USB Accelerator
+- NVIDIA Jetson TX2 w/ Google Coral USB Accelerator
 
 ## Getting Started
 
