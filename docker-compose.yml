@@ -8,7 +8,7 @@ volumes:
 services:
   # https://blakeblackshear.github.io/frigate/installation
   frigate:
-    build: .
+    build: frigate
     privileged: true
     devices:
       - /dev/bus/usb:/dev/bus/usb
@@ -47,12 +47,6 @@ services:
     image: eclipse-mosquitto:1.6.15
     ports:
       - 1883:1883
-    command:
-      - /bin/sh
-      - -c
-      - "printf 'persistence true\npersistence_location /mosquitto/data/\n' > /mosquitto/config/mosquitto.conf && /usr/sbin/mosquitto -c /mosquitto/config/mosquitto.conf"
-    volumes:
-      - mqtt:/mosquitto/data/
 
   # https://github.com/balenablocks/hostname
   hostname:
