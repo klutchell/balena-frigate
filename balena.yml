@@ -1,0 +1,29 @@
+name: "Frigate"
+type: "sw.application"
+version: 0.8.4
+description: "A complete and local NVR designed for Home Assistant with AI object detection."
+post-provisioning: >-
+  ## Usage instructions
+  
+  Once your device joins the fleet you'll need to allow some time for it to download the application and start the services.
+
+  When it's done you should be able to access the access the app at http://frigate.local.
+
+  You can use the included `code-server` to modify your `frigate.yml` directly on the device at http://frigate.local:8080.
+
+  Additional usage instructions for Frigate can be found here: <https://blakeblackshear.github.io/frigate/>.
+
+assets:
+  repository:
+    type: "blob.asset"
+    data:
+      url: "https://github.com/klutchell/balena-frigate"
+  logo:
+    type: "blob.asset"
+    data:
+      url: "https://raw.githubusercontent.com/klutchell/balena-frigate/main/logo.png"
+data:
+  defaultDeviceType: "intel-nuc"
+  supportedDeviceTypes:
+    - "intel-nuc"
+    - "genericx86-64-ext"
