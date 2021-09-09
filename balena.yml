@@ -27,3 +27,4 @@ data:
   supportedDeviceTypes:
     - "intel-nuc"
     - "genericx86-64-ext"
+    - "jetson-nano"
