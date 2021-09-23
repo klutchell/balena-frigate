@@ -7,16 +7,23 @@ It uses OpenCV and Tensorflow to perform realtime object detection locally for I
 
 <https://blakeblackshear.github.io/frigate/hardware>
 
-- Intel NUC
-- Generic x86-64 w/ Google Coral USB Accelerator
-- NVIDIA Jetson Nano w/ Google Coral USB Accelerator
-- NVIDIA Jetson TX2 w/ Google Coral USB Accelerator
+If you are not using an Edge TPU and will rely on CPU, almost any x86_64 or ARM64
+platform should work fine.
+
+The following device and OS combinations have been tested with a Google Coral USB Accelerator.
+Please consider updating this table if you have tried a new combination.
+
+| Device Type        | OS Version    |
+| ------------------ | ------------- |
+| Intel NUC          | 2.83.18+rev1  |
+| Generic x86-64     | 2.83.18+rev1  |
+| NVIDIA Jetson Nano | 2.82.11+rev11 |
 
 ## Getting Started
 
 You can one-click-deploy this project to balena using the button below:
 
-[![Deploy with balena](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/klutchell/balena-frigate&defaultDeviceType=intel-nuc)
+[![Deploy with balena](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/klutchell/balena-frigate)
 
 ## Manual Deployment
 
