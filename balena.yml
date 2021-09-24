@@ -28,4 +28,3 @@ data:
     - "intel-nuc"
     - "genericx86-64-ext"
     - "jetson-nano"
-    - "jetson-tx2"
