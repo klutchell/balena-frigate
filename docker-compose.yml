@@ -26,8 +26,8 @@ services:
       FRIGATE_RTSP_PASSWORD: "balena"
       CONFIG_FILE: "/config/frigate.yml"
 
-  gasket:
-    build: gasket
+  drivers:
+    build: drivers
     privileged: true
     labels:
       - io.balena.features.kernel-modules=1
