@@ -1,3 +1,14 @@
+# https://hub.docker.com/r/blakeblackshear/frigate/tags
 FROM blakeblackshear/frigate:0.9.1-%%BALENA_ARCH%%
 
+# hadolint ignore=DL3008
+RUN apt-get update && apt-get install --no-install-recommends -y util-linux jq \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 COPY frigate.yml /config/frigate.yml
+
+COPY mount.sh /
+
+RUN chmod +x /mount.sh
+
+ENTRYPOINT [ "/mount.sh" ]
