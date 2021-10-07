@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 usb_devices=()
-mapfile -O ${#usb_devices[@]} -t usb_devices < <(lsblk -J -o SUBSYSTEMS,PATH | jq -r '.blockdevices[] | select(.subsystems=="block:scsi:usb:platform") | .path')
-mapfile -O ${#usb_devices[@]} -t usb_devices < <(lsblk -J -o SUBSYSTEMS,PATH | jq -r '.blockdevices[] | select(.subsystems=="block:scsi:usb:pci:platform") | .path')
+mapfile -O ${#usb_devices[@]} -t usb_devices < <(lsblk -J -O | jq -r '.blockdevices[] | select(.subsystems=="block:scsi:usb:platform") | .path')
+mapfile -O ${#usb_devices[@]} -t usb_devices < <(lsblk -J -O | jq -r '.blockdevices[] | select(.subsystems=="block:scsi:usb:pci:platform") | .path')
 
 # automount USB device partitions at /media/{UUID}
 if [ ${#usb_devices[@]} -gt 0 ]
@@ -19,5 +19,8 @@ then
         break
     done
 fi
+
+modprobe gasket >/dev/null 2>&1 || true
+modprobe apex >/dev/null 2>&1 || true
 
 exec /init python3 -u -m frigate
