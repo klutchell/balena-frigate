@@ -18,7 +18,7 @@ services:
       - "1935:1935" # RTMP feeds
     volumes:
       - config:/config:ro
-      - media:/media/frigate
+      - media:/media/data
     tmpfs:
       - /tmp/cache
     shm_size: 2048M
