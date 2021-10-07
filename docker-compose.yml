@@ -26,13 +26,6 @@ services:
       FRIGATE_RTSP_PASSWORD: "balena"
       CONFIG_FILE: "/config/frigate.yml"
 
-  drivers:
-    build: drivers
-    privileged: true
-    labels:
-      - io.balena.features.kernel-modules=1
-    restart: no
-
   # https://hub.docker.com/r/codercom/code-server
   code-server:
     image: codercom/code-server:3.11.1
