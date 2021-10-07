@@ -15,7 +15,6 @@ Please consider updating this table if you have tried a new combination.
 
 | Device Type        | OS Version    |
 | ------------------ | ------------- |
-| Intel NUC          | 2.83.18+rev1  |
 | Generic x86-64     | 2.83.18+rev1  |
 | NVIDIA Jetson Nano | 2.82.11+rev11 |
 

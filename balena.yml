@@ -28,3 +28,6 @@ data:
     - "intel-nuc"
     - "genericx86-64-ext"
     - "jetson-nano"
+    - "raspberrypi4-64"
+  applicationConfigVariables:
+    BALENA_HOST_CONFIG_gpu_mem: 128
