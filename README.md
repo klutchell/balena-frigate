@@ -7,17 +7,6 @@ It uses OpenCV and Tensorflow to perform realtime object detection locally for I
 
 <https://blakeblackshear.github.io/frigate/hardware>
 
-If you are not using an Edge TPU and will rely on CPU, almost any x86_64 or ARM64
-platform should work fine.
-
-The following device and OS combinations have been tested with a Google Coral USB Accelerator.
-Please consider updating this table if you have tried a new combination.
-
-| Device Type        | OS Version    |
-| ------------------ | ------------- |
-| Generic x86-64     | 2.83.18+rev1  |
-| NVIDIA Jetson Nano | 2.82.11+rev11 |
-
 ## Getting Started
 
 You can one-click-deploy this project to balena using the button below:

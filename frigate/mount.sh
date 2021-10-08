@@ -20,7 +20,7 @@ then
     done
 fi
 
-modprobe gasket >/dev/null 2>&1 || true
-modprobe apex >/dev/null 2>&1 || true
+# modprobe gasket >/dev/null 2>&1 || true
+# modprobe apex >/dev/null 2>&1 || true
 
 exec /init python3 -u -m frigate
