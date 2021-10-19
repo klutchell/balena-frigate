@@ -1,10 +1,5 @@
 version: "2.1"
 
-volumes:
-  config:
-  media:
-  mqtt:
-
 services:
   # https://blakeblackshear.github.io/frigate/installation
   frigate:
@@ -30,7 +25,7 @@ services:
 
   # https://hub.docker.com/r/codercom/code-server
   code-server:
-    image: codercom/code-server:3.11.1
+    image: codercom/code-server:3.12.0
     command:
       - --port=8080
       - --auth=none
@@ -46,9 +41,11 @@ services:
 
   # https://hub.docker.com/_/eclipse-mosquitto
   mqtt:
-    image: eclipse-mosquitto:1.6.15
+    build: mqtt
     ports:
       - 1883:1883
+    volumes:
+      - mqtt:/mosquitto/data
 
   # https://github.com/balenablocks/hostname
   hostname:
@@ -58,3 +55,8 @@ services:
       io.balena.features.supervisor-api: 1
     environment:
       SET_HOSTNAME: frigate
+
+volumes:
+  config:
+  media:
+  mqtt:
