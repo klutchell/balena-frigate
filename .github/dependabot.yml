@@ -4,11 +4,3 @@ updates:
   directory: "/"
   schedule:
     interval: weekly
-- package-ecosystem: docker
-  directory: "/frigate"
-  schedule:
-    interval: weekly
-- package-ecosystem: docker
-  directory: "/drivers"
-  schedule:
-    interval: weekly
