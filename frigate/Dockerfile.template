@@ -1,5 +1,5 @@
 # https://hub.docker.com/r/blakeblackshear/frigate/tags
-FROM blakeblackshear/frigate:0.9.2-%%BALENA_ARCH%%
+FROM blakeblackshear/frigate:0.9.3-%%BALENA_ARCH%%
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install --no-install-recommends -y util-linux jq kmod \
