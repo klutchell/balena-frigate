@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-usb_devices=()
-mapfile -O ${#usb_devices[@]} -t usb_devices < <(lsblk -J -O | jq -r '.blockdevices[] | select(.subsystems=="block:scsi:usb:platform") | .path')
-mapfile -O ${#usb_devices[@]} -t usb_devices < <(lsblk -J -O | jq -r '.blockdevices[] | select(.subsystems=="block:scsi:usb:platform") | .children[].path')
-mapfile -O ${#usb_devices[@]} -t usb_devices < <(lsblk -J -O | jq -r '.blockdevices[] | select(.subsystems=="block:scsi:usb:pci:platform") | .path')
-mapfile -O ${#usb_devices[@]} -t usb_devices < <(lsblk -J -O | jq -r '.blockdevices[] | select(.subsystems=="block:scsi:usb:pci:platform") | .children[].path')
-echo "${usb_devices[@]}"
+mapfile -t usb_devices < <(lsblk -J -O | jq -r '.blockdevices[] | 
+    select(.subsystems=="block:scsi:usb:platform" or .subsystems=="block:scsi:usb:pci:platform") | 
+    .path, .children[].path')
 
 # automount USB device partitions at /media/{UUID}
 if [ ${#usb_devices[@]} -gt 0 ]
