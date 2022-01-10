@@ -5,9 +5,6 @@ services:
   frigate:
     build: frigate
     privileged: true
-    devices:
-      - /dev/bus/usb:/dev/bus/usb
-      - /dev/dri/renderD128
     ports:
       - "80:5000"
       - "1935:1935" # RTMP feeds
