@@ -1,5 +1,38 @@
 {
   "extends": [
     "config:base"
+  ],
+  "allowPostUpgradeCommandTemplating": true,
+  "allowedPostUpgradeCommands": [
+    "^./postUpgrade.sh {{{newVersion}}}"
+  ],
+  "platform": "github",
+  "onboarding": false,
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "blakeblackshear/frigate"
+      ],
+      "matchBaseBranches": [
+        "main"
+      ],
+      "postUpgradeTasks": {
+        "commands": [
+          "./postUpgrade.sh {{{newVersion}}}"
+        ],
+        "fileFilters": [
+          "balena.yml"
+        ],
+        "executionMode": "update"
+      }
+    }
+  ],
+  "repositories": [
+    "klutchell/balena-frigate"
+  ],
+  "rebaseWhen": "auto",
+  "automerge": false,
+  "labels": [
+    "renovate"
   ]
 }
