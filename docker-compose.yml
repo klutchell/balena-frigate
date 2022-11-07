@@ -22,7 +22,7 @@ services:
 
   # https://hub.docker.com/r/codercom/code-server
   code-server:
-    image: codercom/code-server:4.8.2
+    image: codercom/code-server:4.8.3
     command:
       - --port=8080
       - --auth=none
