@@ -18,15 +18,7 @@ services:
       FRIGATE_RTSP_PASSWORD: "balena"
       CONFIG_FILE: "/config/frigate.yml"
     labels:
-      - io.balena.features.kernel-modules=1
-
-  # https://hub.docker.com/_/eclipse-mosquitto
-  mqtt:
-    build: mqtt
-    ports:
-      - 1883:1883
-    volumes:
-      - mqtt:/mosquitto/data
+      io.balena.features.kernel-modules: 1
 
   # https://github.com/balenablocks/hostname
   hostname:
@@ -46,5 +38,4 @@ services:
 volumes:
   config:
   media:
-  mqtt:
   tokens:

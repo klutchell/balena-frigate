@@ -20,11 +20,12 @@ flashing a device, downloading the project and pushing it via the [balena CLI](h
 
 ### Environment Variables
 
-| Name                    | Description                                                                                                       |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `FRIGATE_RTSP_PASSWORD` | Default password for RTSP camera streams.                                                                         |
-| `TZ`                    | Inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location. |
-| `SET_HOSTNAME`          | Set a custom hostname on application start. Default is `frigate`.                                                 |
+- `FRIGATE_MQTT_USER`: Replaced at runtime in `frigate.yml`
+- `FRIGATE_MQTT_PASSWORD`: Replaced at runtime in `frigate.yml`
+- `FRIGATE_RTSP_USER`: Replaced at runtime in `frigate.yml`
+- `FRIGATE_RTSP_PASSWORD`: Replaced at runtime in `frigate.yml`
+- `TZ`: Inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location
+- `SET_HOSTNAME`: Set a custom hostname on application start (default is `frigate`)
 
 ## Usage/Examples
 
