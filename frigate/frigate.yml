@@ -1,7 +1,4 @@
-# https://blakeblackshear.github.io/frigate/configuration/index
-
-mqtt:
-  host: mqtt
+# https://docs.frigate.video/configuration/
 cameras:
   back:
     ffmpeg:
@@ -9,8 +6,6 @@ cameras:
         - path: rtsp://viewer:{FRIGATE_RTSP_PASSWORD}@10.0.10.10:554/cam/realmonitor?channel=1&subtype=2
           roles:
             - detect
-            - rtmp
     detect:
       width: 1280
       height: 720
-      fps: 5
