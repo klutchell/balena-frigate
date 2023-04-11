@@ -1,4 +1,6 @@
 # https://docs.frigate.video/configuration/
+mqtt:
+  host: mqtt
 cameras:
   back:
     ffmpeg:
