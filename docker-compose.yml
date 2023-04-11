@@ -20,22 +20,6 @@ services:
     labels:
       - io.balena.features.kernel-modules=1
 
-  # https://hub.docker.com/r/codercom/code-server
-  code-server:
-    image: codercom/code-server:4.11.0
-    command:
-      - --port=8080
-      - --auth=none
-      - --extensions-dir=/config/.vscode
-      - --user-data-dir=/config/.vscode
-      - /config
-    working_dir: /config
-    ports:
-      - 8080:8080/tcp
-    volumes:
-      - config:/config
-    user: root
-
   # https://hub.docker.com/_/eclipse-mosquitto
   mqtt:
     build: mqtt

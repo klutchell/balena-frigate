@@ -32,8 +32,6 @@ Once your device joins the fleet you'll need to allow some time for it to downlo
 
 When it's done you should be able to access the access the app at <http://frigate.local>.
 
-You can use the included `code-server` to modify your `frigate.yml` directly on the device at <http://frigate.local:8080>.
-
 Additional usage instructions for Frigate can be found here: <https://blakeblackshear.github.io/frigate/>.
 
 ### Wyze bridge
