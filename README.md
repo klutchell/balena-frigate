@@ -20,19 +20,18 @@ flashing a device, downloading the project and pushing it via the [balena CLI](h
 
 ### Environment Variables
 
-| Name                    | Description                                                                                                       |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `FRIGATE_RTSP_PASSWORD` | Default password for RTSP camera streams.                                                                         |
-| `TZ`                    | Inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location. |
-| `SET_HOSTNAME`          | Set a custom hostname on application start. Default is `frigate`.                                                 |
+- `FRIGATE_MQTT_USER`: Replaced at runtime in `frigate.yml`
+- `FRIGATE_MQTT_PASSWORD`: Replaced at runtime in `frigate.yml`
+- `FRIGATE_RTSP_USER`: Replaced at runtime in `frigate.yml`
+- `FRIGATE_RTSP_PASSWORD`: Replaced at runtime in `frigate.yml`
+- `TZ`: Inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location
+- `SET_HOSTNAME`: Set a custom hostname on application start (default is `frigate`)
 
 ## Usage/Examples
 
 Once your device joins the fleet you'll need to allow some time for it to download the application and start the services.
 
 When it's done you should be able to access the access the app at <http://frigate.local>.
-
-You can use the included `code-server` to modify your `frigate.yml` directly on the device at <http://frigate.local:8080>.
 
 Additional usage instructions for Frigate can be found here: <https://blakeblackshear.github.io/frigate/>.
 
