@@ -5,10 +5,15 @@
   "packageRules": [
     {
       "matchPackageNames": [
-        "blakeblackshear/frigate"
+        "ghcr.io/blakeblackshear/frigate"
       ],
       "matchBaseBranches": [
         "main"
+      ],
+      "matchUpdateTypes": [
+          "major",
+          "minor",
+          "patch"
       ],
       "postUpgradeTasks": {
         "commands": [
