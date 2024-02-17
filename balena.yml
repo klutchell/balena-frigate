@@ -1,6 +1,6 @@
 name: "Frigate"
 type: "sw.application"
-version: 0.13.1
+version: 0.13.2
 description: "A complete and local NVR designed for Home Assistant with AI object detection."
 post-provisioning: >-
   ## Usage instructions
