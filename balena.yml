@@ -1,10 +1,11 @@
 name: "Frigate"
 type: "sw.application"
-version: 0.14.1
+# renovate: datasource=docker depName=ghcr.io/blakeblackshear/frigate
+version: 0.15.2
 description: "A complete and local NVR designed for Home Assistant with AI object detection."
 post-provisioning: >-
   ## Usage instructions
-  
+
   Once your device joins the fleet you'll need to allow some time for it to download the application and start the services.
 
   When it's done you should be able to access the access the app at http://frigate.local.
