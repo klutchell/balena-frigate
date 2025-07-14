@@ -1,13 +1,16 @@
 version: "2.1"
 
 services:
-  # https://blakeblackshear.github.io/frigate/installation
+  # https://docs.frigate.video/frigate/installation#docker
   frigate:
-    build: frigate
+    image: ghcr.io/blakeblackshear/frigate:0.15.2@sha256:44745918b0124253890b389e41ed9e24553bd156ab3f9e2b06723c0dfed2af8c
     privileged: true
     ports:
-      - "80:5000"
-      - "1935:1935" # RTMP feeds
+      - "80:8971"
+      # - "5000:5000" # Internal unauthenticated access. Expose carefully.
+      - "8554:8554" # RTSP feeds
+      - "8555:8555/tcp" # WebRTC over tcp
+      - "8555:8555/udp" # WebRTC over udp
     volumes:
       - config:/config:ro
       - media:/media/frigate
