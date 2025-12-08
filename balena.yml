@@ -1,7 +1,7 @@
 name: "Frigate"
 type: "sw.application"
 # renovate: datasource=docker depName=ghcr.io/blakeblackshear/frigate
-version: 0.16.2
+version: 0.16.3
 description: "A complete and local NVR designed for Home Assistant with AI object detection."
 post-provisioning: >-
   ## Usage instructions
